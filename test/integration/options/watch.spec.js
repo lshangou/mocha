@@ -324,7 +324,7 @@ describe('--watch', function() {
 
           replaceFileContents(hookFile, '<hook>', hookName);
 
-          return runMochaWatch(
+          return runMochaWatchJSONAsync(
             [testFile, '--require', hookFile],
             tempDir,
             () => {
