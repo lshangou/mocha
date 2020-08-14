@@ -180,6 +180,13 @@ describe('worker', function() {
             ]);
           });
 
+          it('should remove all unhandledRejection listeners', async function() {
+            await worker.run('some-file.js');
+            expect(process.removeAllListeners, 'to have a call satisfying', [
+              'unhandledRejection'
+            ]);
+          });
+
           describe('when serialization succeeds', function() {
             beforeEach(function() {
               stubs.serializer.serialize.returnsArg(0);
