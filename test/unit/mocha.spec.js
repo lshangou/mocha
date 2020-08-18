@@ -51,7 +51,8 @@ describe('Mocha', function() {
     sinon.stub(Mocha.reporters, 'base').returns({});
     sinon.stub(Mocha.reporters, 'spec').returns({});
 
-    runner = utils.assign(sinon.createStubInstance(EventEmitter), {
+    runner = {
+      ...sinon.createStubInstance(EventEmitter),
       run: sinon
         .stub()
         .callsArgAsync(0)
@@ -59,18 +60,19 @@ describe('Mocha', function() {
       globals: sinon.stub(),
       grep: sinon.stub(),
       dispose: sinon.stub()
-    });
+    };
     Runner = sinon.stub(Mocha, 'Runner').returns(runner);
     // the Runner constructor is the main export, and constants is a static prop.
     // we don't need the constants themselves, but the object cannot be undefined
     Runner.constants = {};
-    suite = utils.assign(sinon.createStubInstance(EventEmitter), {
+    suite = {
+      ...sinon.createStubInstance(EventEmitter),
       slow: sinon.stub(),
       timeout: sinon.stub(),
       bail: sinon.stub(),
       dispose: sinon.stub(),
       reset: sinon.stub()
-    });
+    };
     Suite = sinon.stub(Mocha, 'Suite').returns(suite);
     Suite.constants = {};
 

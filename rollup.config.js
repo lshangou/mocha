@@ -17,8 +17,7 @@ const config = {
     file: './mocha.js',
     format: 'umd',
     sourcemap: true,
-    name: 'mocha',
-    footer: 'window.Mocha = window.mocha.Mocha;'
+    name: 'mocha'
   },
   plugins: [
     json(),
@@ -38,7 +37,6 @@ const config = {
           '@babel/preset-env',
           {
             modules: false,
-            spec: true,
             useBuiltIns: 'usage',
             forceAllTransforms: true,
             corejs: {

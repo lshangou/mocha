@@ -742,4 +742,10 @@ describe('lib/utils', function() {
       expect(utils.slug('poppies & fritz'), 'to be', 'poppies-fritz');
     });
   });
+
+  describe('uniqueID()', function() {
+    it('should return a non-empty string', function() {
+      expect(utils.uniqueID(), 'to be a string').and('not to be empty');
+    });
+  });
 });

@@ -1158,4 +1158,10 @@ describe('Runner', function() {
       });
     });
   });
+
+  describe('linkPartialObjects', function() {
+    it('should return the Runner', function() {
+      expect(runner.linkPartialObjects(), 'to be', runner);
+    });
+  });
 });
